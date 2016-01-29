@@ -10,11 +10,22 @@ Determine whether a semver pattern is a range or a single version
 
 ## Summary
 
-## Usage
+`is-semver-range` returns true if a version specifier indicates a range of versions and false if it indicates a single version.
 
+```js
+var isSemverRange = require('is-semver-range');
 
-
-### Example
+isSemverRange('4.0.0'); // false
+isSemverRange('=2.3.1'); // false
+isSemverRange('0.0.3-rc1'); // false
+isSemverRange('>2.0.0'); // true
+isSemverRange('>=4 <4.9'); // true
+isSemverRange('~0.10.10'); // true
+isSemverRange('4 || 5'); // true
+isSemverRange('1.x'); // true
+isSemverRange('2'); // true
+isSemverRange('^3.1.1'); // true
+```
 
 ## Contributing
 
